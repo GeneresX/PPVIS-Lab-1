@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <ctime>
 
@@ -33,11 +33,73 @@ public:
 			}
 	    }
 	}
-	//сложение двух матриц
-	//сложение матрицы с числом
-	//вычитание двух матриц
-	//вычитание и матрицы числа
-	//произведение матриц
+
+	matrixs operator + (matrixs & other) 	//сложение двух матриц
+	{
+		matrixs tmp;
+		if (this-> row == other.row & this-> col == other.col)
+		{
+			for (int i = 0; i < this-> row; i++)
+			{
+				for (int j = 0; j < this->col; j++)
+				{
+					tmp.cell[i][j] = this->cell[i][j] + other.cell[i][j];
+				}
+			}
+		}
+		return tmp;
+	}
+	
+	matrixs operator + (int number) 	//сложение матрицы и числа
+	{
+		matrixs tmp;
+		for (int i = 0; i < this->row; i++)
+		{
+			for (int j = 0; j < this->col; j++)
+			{
+				tmp.cell[i][j] = this->cell[i][j] + number;
+			}
+		}
+		return tmp;
+	}
+	
+	matrixs operator - (matrixs & other) 	//разность двух матриц
+	{
+		matrixs tmp;
+		if (this->row == other.row & this->col == other.col)
+		{
+			for (int i = 0; i < this->row; i++)
+			{
+				for (int j = 0; j < this->col; j++)
+				{
+					tmp.cell[i][j] = this->cell[i][j] - other.cell[i][j];
+				}
+			}
+		}
+		return tmp;
+	}
+
+	matrixs operator - (int number) //разность матрицы и числа
+	{
+		matrixs tmp;
+		for (int i = 0; i < this->row; i++)
+		{
+			for (int j = 0; j < this->col; j++)
+			{
+				tmp.cell[i][j] = this->cell[i][j] - number;
+			}
+		}
+		return tmp;
+	}
+
+	matrixs operator * (matrixs & other) 
+	{
+		if (this->col == other.row) 
+		{
+
+		}
+	}
+    //произведение матриц
 	//произведение матрицы и числа
 	//возведение в степень матрицы 
     //детерминант
